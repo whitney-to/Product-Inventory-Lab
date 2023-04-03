@@ -1,7 +1,6 @@
 package services;
 
 import models.Sneaker;
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -55,8 +54,6 @@ public class SneakerServiceTest {
 
         // Then
         Assertions.assertEquals(expected,sneakerArray.length);
-        //sneakerService = null;
-
     }
 
     @Test
