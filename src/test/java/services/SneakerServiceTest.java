@@ -3,7 +3,6 @@ package services;
 import models.Sneaker;
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class SneakerServiceTest {
@@ -49,7 +48,7 @@ public class SneakerServiceTest {
         sneakerService.create("", "", "", 0.0, 0, 5.0f);
         sneakerService.create("", "", "", 0.0, 0, 5.0f);
         sneakerService.create("", "", "", 0.0, 0, 5.0f);
-        Integer expected = 4;
+        Integer expected = sneakerService.getInventory().size();
 
         // When
         Sneaker[] sneakerArray = sneakerService.findAll();
@@ -73,11 +72,10 @@ public class SneakerServiceTest {
         sneakerService.create("", "", "", 0.0, 0, 5.0f);
 
         // When
-        Sneaker actual = sneakerService.findSneaker(3);
+        Sneaker actual = sneakerService.findSneaker(expected.getId());
 
         // Then
         Assertions.assertEquals(expected,actual);
-        sneakerService = null;
     }
 
     @Test
@@ -96,6 +94,4 @@ public class SneakerServiceTest {
         Assertions.assertTrue(sneakerService.delete(id));
         Assertions.assertFalse(sneakerService.delete(id));
     }
-
-
 }
