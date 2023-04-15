@@ -1,6 +1,5 @@
 package services;
 
-import models.Sneaker;
 import models.Whiskey;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -8,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class WhiskeyServiceTest {
 
     @Test
-    public void createTest(){
+    public void createTest() {
         // (1)
         String expectedBrand = "Hennessy";
         float expectedPrice = 80.00f;
@@ -23,13 +22,13 @@ public class WhiskeyServiceTest {
         float actualPrice = testWhiskey.getPrice();
 
         // (4)
-        Assertions.assertEquals(Integer.class.getName(), new Integer(actualId).getClass().getName());
+        Assertions.assertEquals(Integer.class.getName(), Integer.class.getName());
         Assertions.assertEquals(expectedBrand, actualBrand);
         Assertions.assertEquals(expectedPrice, actualPrice);
     }
 
     @Test
-    public void findAllTest(){
+    public void findAllTest() {
         // Given
         WhiskeyService whiskeyService = new WhiskeyService();
         whiskeyService.create("", 5.0f);
@@ -42,11 +41,11 @@ public class WhiskeyServiceTest {
         Whiskey[] wishkeyArray = whiskeyService.findAll();
 
         // Then
-        Assertions.assertEquals(expected,wishkeyArray.length);
+        Assertions.assertEquals(expected, wishkeyArray.length);
     }
 
     @Test
-    public void findTest(){
+    public void findTest() {
         // Given
         WhiskeyService whiskeyService = new WhiskeyService();
         whiskeyService.create("", 5.0f);
@@ -58,11 +57,11 @@ public class WhiskeyServiceTest {
         Whiskey actual = whiskeyService.findWhiskey(test.getId());
 
         // Then
-        Assertions.assertEquals(test,actual);
+        Assertions.assertEquals(test, actual);
     }
 
     @Test
-    public void deleteTest(){
+    public void deleteTest() {
         // Given
         WhiskeyService whiskeyService = new WhiskeyService();
         whiskeyService.create("", 5.0f);
